@@ -37,7 +37,7 @@ class Car
   def initialize(id, price_per_day, price_per_km)
     @id = id
     @price_per_day = price_per_day
-    price_per_km = price_per_km
+    @price_per_km = price_per_km
   end
 
   def to_s
@@ -54,3 +54,27 @@ cars_data.each do |car_hash|
 end
 
 puts cars
+
+class Rental
+
+  def initialize(id, car_id, days, kms)
+    @id = id
+    @car_id = car_id
+    @days = days
+    @kms = kms
+  end
+
+  def to_s
+   "Rental: id:" + @id.to_s
+  end
+
+end
+
+rentals = []
+
+rentals_data.each do |rental_hash|
+  rental = Rental.new(rental_hash["id"], rental_hash["car_id"], rental_hash["days"], rental_hash["kms"])
+  rentals = rentals + [rental] 
+end
+
+puts rentals
