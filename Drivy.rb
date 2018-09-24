@@ -31,3 +31,26 @@ rentals_data = [
     "kms" => 1200
   }
 ]
+
+class Car
+
+  def initialize(id, price_per_day, price_per_km)
+    @id = id
+    @price_per_day = price_per_day
+    price_per_km = price_per_km
+  end
+
+  def to_s
+   "Car: id:" + @id.to_s
+  end
+
+end
+
+cars = []
+
+cars_data.each do |car_hash|
+  car = Car.new(car_hash["id"], car_hash["price_per_day"], car_hash["price_per_km"])
+  cars = cars + [car] 
+end
+
+puts cars
